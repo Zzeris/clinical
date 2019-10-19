@@ -1,0 +1,54 @@
+{
+    "diariamente": {
+        "horaInicio": "9:30",
+        "horaFim": "10:10"
+    },
+
+    "semanalmente": {
+        "diasDaSemana": ["segundas","quartas"],
+        "horaInicio": "14:00",
+        "horaFim": "14:30"
+    },
+
+    "umdiaEspecifico": [
+        {
+            "data": "25-06-2020",
+            "intervalos": [
+                {
+                    "horaInicio": "14:30",
+                    "horaFim": "15:00"
+                },
+                {
+                    "horaInicio": "15:10",
+                    "horaFim": "15:30"
+                }
+            ]
+        },
+        {
+            "data": "26-06-2020",
+            "intervalos": [
+                {
+                    "horaInicio": "14:30",
+                    "horaFim": "15:00"
+                },
+                {
+                    "horaInicio": "15:10",
+                    "horaFim": "15:30"
+                }
+            ]
+        },
+        {
+            "data": "27-06-2020",
+            "intervalos": [
+                {
+                    "horaInicio": "14:30",
+                    "horaFim": "15:00"
+                },
+                {
+                    "horaInicio": "15:10",
+                    "horaFim": "15:30"
+                }
+            ]
+        }
+    ]
+}
