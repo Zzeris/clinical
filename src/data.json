@@ -3,16 +3,14 @@
         "horaInicio": "9:30",
         "horaFim": "10:10"
     },
-
     "semanalmente": {
         "diasDaSemana": ["segundas","quartas"],
         "horaInicio": "14:00",
         "horaFim": "14:30"
     },
-
-    "umdiaEspecifico": [
+    "umDiaEspecifico": [
         {
-            "data": "25-06-2020",
+            "dia": "25-06-2020",
             "intervalos": [
                 {
                     "horaInicio": "14:30",
@@ -25,7 +23,7 @@
             ]
         },
         {
-            "data": "26-06-2020",
+            "dia": "26-06-2020",
             "intervalos": [
                 {
                     "horaInicio": "14:30",
@@ -38,7 +36,7 @@
             ]
         },
         {
-            "data": "27-06-2020",
+            "dia": "27-06-2020",
             "intervalos": [
                 {
                     "horaInicio": "14:30",
