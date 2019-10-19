@@ -1,0 +1,18 @@
+{
+  "name": "clinical",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": "https://github.com/Zzeris/clinical.git",
+  "author": "zzeris <zzeris@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  }
+}
