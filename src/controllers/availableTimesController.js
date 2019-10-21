@@ -7,7 +7,7 @@ module.exports = {
         const start = new Date(date1.split('-').reverse());
         const end = new Date(date2.split('-').reverse());
 
-        let result = data.umDiaEspecifico.filter(element => {
+        let result = data.diaEspecifico.filter(element => {
             let date = new Date(element.dia.split('-').reverse());
             return date >= start && date <= end
         });
@@ -19,10 +19,16 @@ module.exports = {
     show(req, res) {
         const { date1 } = req.params;
 
-        let result = data.umDiaEspecifico.filter(element => element.dia === date1);
+        let result = data.diaEspecifico.filter(element => element.dia === date1);
 
         if (result.length === 0) result = 'Não hà atendimento nesta data, tente outra.'
 
         res.json(result);
+    },
+    store(req, res) {
+
+    },
+    delete(req, res) {
+        
     }
 }
