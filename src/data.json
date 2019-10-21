@@ -8,7 +8,7 @@
         "horaInicio": "14:00",
         "horaFim": "14:30"
     },
-    "umDiaEspecifico": [
+    "diaEspecifico": [
         {
             "dia": "25-06-2020",
             "intervalos": [
