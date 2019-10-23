@@ -1,31 +1,22 @@
-const fs = require('fs');
-const dataFilePath = './data.json';
+const state = require('../config/state');
 
 module.exports = {
-    async store(req, res) {
-        const fileBuffer = fs.readFileSync(dataFilePath, 'utf-8');
+    store(req, res) {
+        const content = state.load();
 
-        const dataJson = JSON.parse(fileBuffer);
+        content.diariamente = req.body;
 
-        dataJson.diariamente = req.body;
+        state.save(content);
 
-        const dataString = JSON.stringify(dataJson);
-
-        fs.writeFileSync(dataFilePath, dataString);
-
-        res.send('Horário diário cadastrado com sucesso.');
+        return res.send('Horário diário cadastrado com sucesso.');
     },
     delete(_, res) {
-        const fileBuffer = fs.readFileSync(dataFilePath, 'utf-8');
+        const content = state.load();
 
-        const dataJson = JSON.parse(fileBuffer);
+        content.diariamente = {};
 
-        dataJson.diariamente = {};
+        state.save(content);
 
-        const dataString = JSON.stringify(dataJson);
-
-        fs.writeFileSync(dataFilePath, dataString);
-
-        res.send('Horário diário excluido com sucesso.');
+        return res.send('Horário diário excluido com sucesso.');
     }
 }
