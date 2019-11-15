@@ -1,4 +1,5 @@
 const state = require('../config/state');
+const format = require('../config/formatHours');
 
 module.exports = {
     index(req, res) {
@@ -30,13 +31,31 @@ module.exports = {
         return res.json(result);
     },
     store(req, res) {
-        const { dia } = req.body;
+        const { dia, intervalos } = req.body;
+
+        let intervalAux = ''
+
+        for(let i = 0; i < intervalos.length; i++){
+            const resultFormat = format.Hours(intervalos[i].horaInicio, intervalos[i].horaFim);
+
+            if (resultFormat) return res.send(`${resultFormat} No intervalo ${i+1}.`);
+
+            if (intervalAux !== '') {
+                if (intervalAux === intervalos[i].horaInicio)
+                    return res.send(`Hora início no intervalo ${i+1} não pode ser igual a hora final no intervalo ${i}`);
+                if (intervalAux > intervalos[i].horaInicio)
+                    return res.send(`Hora início no intervalo ${i+1} não pode ser menor que a hora final no intervalo ${i}`)
+                intervalAux = ''
+            }
+
+            if (intervalAux === '') intervalAux = intervalos[i].horaFim;
+        }
 
         const content = state.load();
 
-        const result = content.diaEspecifico.filter(element => element.dia === dia);
+        const resultItem = content.diaEspecifico.filter(element => element.dia === dia);
 
-        if (result.length > 0) return res.send(`Dia ${dia} já cadastrado.`);
+        if (resultItem.length > 0) return res.send(`Dia ${dia} já cadastrado.`);
 
         content.diaEspecifico.push(req.body);
 
